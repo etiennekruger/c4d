@@ -14,21 +14,20 @@
   <body>
     <div id='map'></div>
     <script>
-      var map;
-      var hull = new L.LatLng(53.775, -0.356);
+      var hull = new L.LatLng(-26.3, 23.2);
       function initmap() {
 	  map = new L.Map('map');
 	  var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 	  var osmAttrib='Map data: openstreetmap.org';
 	  var osm = new L.TileLayer(osmUrl,{minZoom:2,maxZoom:18,attribution:osmAttrib});
 	  
-	  map.setView(hull,11);
+	  map.setView(hull,5);
 	  map.addLayer(osm);
 	  
 	  $.getJSON('test.json', success=function(data) {
 	      L.geoJson(data, {
 		  style: function (feature) {
-		      return {color: feature.properties.color};
+		      return {color: "blue"};
 		  },
 		  onEachFeature: function (feature, layer) {
 		      layer.bindPopup(feature.properties.WARDWINNER);
