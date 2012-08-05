@@ -1,4 +1,5 @@
 
+
 function initmap() {
     layers = {};
     map = new L.Map('map');
@@ -14,16 +15,16 @@ function initmap() {
 
 $(document).ready(function() {	
     $(':checkbox').click(layerchange);
-    /*function() {
-		var src = $(this).attr('data-src');
-		console.log('click');
-	        layerchange
-	});*/
 });
 
 
 function popup(feature, layer) {
-    return feature.properties.WARDWINNER;
+	if (feature.properties != undefined) {
+		return feature.properties.Issue;
+	}
+	return "";
+	
+    
 }
 
 function layerchange() {
@@ -49,5 +50,6 @@ function layerchange() {
 	delete layers[src];
     }
 }
+
 
 initmap();
