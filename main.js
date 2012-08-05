@@ -19,10 +19,18 @@ $(document).ready(function() {
 
 
 function popup(feature, layer) {
+	var html ="<span class='popup'>";
 	if (feature.properties != undefined) {
-		return feature.properties.Issue;
+		if (feature.properties.value != undefined){
+			html += feature.properties.value;
+		}else {
+			html += 'some text';
+		}
+		
 	}
-	return "";
+	html += "</span>";
+	
+	return html;
 	
     
 }
@@ -50,6 +58,8 @@ function layerchange() {
 	delete layers[src];
     }
 }
+
+
 
 
 initmap();
