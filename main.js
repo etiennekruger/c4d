@@ -9,17 +9,16 @@ function initmap() {
    
     map.setView(hull,6);
     map.addLayer(osm);
-    
 }
 
 
-
-
 $(document).ready(function() {	
-	$(':checkbox').click(function() {
+    $(':checkbox').click(layerchange);
+    /*function() {
 		var src = $(this).attr('data-src');
 		console.log('click');
-	});
+	        layerchange
+	});*/
 });
 
 
@@ -30,8 +29,6 @@ function popup(feature, layer) {
 function layerchange() {
     var src = $(this).data('src');
     var layer = layers[src];
-    console.log(layers);
-    console.log(layer);
     if (typeof(layer) == 'undefined') {
 	console.log('adding layer');
 	console.log(src);
@@ -45,12 +42,11 @@ function layerchange() {
 		}
 	    }).addTo(map);
 	    layers[src] = layer;
-	    console.log(layers);
 	});
     } else {
 	console.log('removing layer');
 	map.removeLayer(layer);
-	console.log(layers);
+	delete layers[src];
     }
 }
 
