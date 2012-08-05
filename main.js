@@ -1,4 +1,3 @@
-var hull = new L.LatLng(-28.6, 23.2);
 function initmap() {
     layers = {};
     map = new L.Map('map');
@@ -43,4 +42,3 @@ function layerchange() {
 }
 
 initmap();
-layerchange('test.json');
