@@ -2,7 +2,7 @@ body {
     background-color: #011019;
 }
 #menu {
-    width: 150px;
+    width: 300px;
     height: 100%;
     float: left;
     background-color: #011019;
@@ -10,4 +10,23 @@ body {
 }
 #map {
     height: 100%;
+}
+
+
+element.style {
+    margin: 1px;
+}
+
+ul {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14x;
+	font-style: bold;
+	line-height: 2em;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-indent: 5px;
+	list-style-type: none;
+	padding: 6px;
+margin: 2px;
 }
