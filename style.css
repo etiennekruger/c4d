@@ -7,6 +7,8 @@ body {
     float: left;
     background-color: #011019;
     color: #ffffff;
+    border: white solid 3px;
+
 }
 #map {
     height: 100%;
