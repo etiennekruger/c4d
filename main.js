@@ -35,6 +35,16 @@ function popup(feature, layer) {
     
 }
 
+function style(feature) {
+    if (typeof(feature.properties.value) != 'undefined') {
+	var red = 255*feature.properties.value;
+    } else {
+	var red = 255;
+    }
+    var style = {color: '#'+red.toString(16)+'0000'};
+    return style;
+}
+
 function layerchange() {
     var src = $(this).data('src');
     var layer = layers[src];
@@ -44,7 +54,7 @@ function layerchange() {
 	$.getJSON(src, success=function(data) {
 	    layer = L.geoJson(data, {
 		style: function (feature) {
-		    return {color: 'blue'};
+		    return style(feature);
 		},
 		onEachFeature: function (feature, layer) {
 		    layer.bindPopup(popup(feature, layer));
